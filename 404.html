@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Redirecting...</title>
+
+    <script>
+      const currentPage = window.location.href.split('/')[3];
+
+      const links = fetch('links.json')
+        .then((res) => res.json())
+        .then((links) => {
+          if (links.includes(currentPage)) {
+            window.location.href = links.currentPage;
+          } else {
+            document.body.innerHTML =
+              'Invalid link! Make sure you typed it out correctly. It might take a moment for newly created links to appear as well.';
+          }
+        });
+    </script>
   </head>
-  <script>
-    async function getlinks() {
-      const response = await fetch('links.json');
-      return await response.json();
-    }
-    let currentpage = window.location.href.split('/')[3];
-    if (getlinks().includes('currentpage')) {
-      window.location.href = links.currentpage;
-    } else {
-      document.body.innerHTML =
-        'Invalid link! Make sure you typed it out correctly. It might take a moment for newly created links to appear as well.';
-    }
-  </script>
+
+  <body></body>
 </html>
