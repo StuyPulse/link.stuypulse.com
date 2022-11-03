@@ -8,13 +8,13 @@
     <title>Redirecting...</title>
 
     <script>
-      const currentPage = window.location.href.split('/')[3];
+      const query = window.location.href.split('/')[3];
 
       const links = fetch('links.json')
         .then((res) => res.json())
         .then((links) => {
-          if (links.includes(currentPage)) {
-            window.location.href = links.currentPage;
+          if (query in links) {
+            window.location.href = links[query];
           } else {
             document.body.innerHTML =
               'Invalid link! Make sure you typed it out correctly. It might take a moment for newly created links to appear as well.';
