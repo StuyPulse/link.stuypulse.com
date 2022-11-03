@@ -8,7 +8,7 @@
     <title>StuyPulse Link Shortener</title>
 
     <script>
-      const links = fetch('/links.json')
+      const links = fetch('links.json')
         .then((res) => res.json())
         .then((links) => {
           const list = document.getElementById('links');
