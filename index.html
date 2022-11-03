@@ -7,14 +7,14 @@
 
     <title>StuyPulse Link Shortener</title>
 
-    <script defer>
-      const links = fetch("/links.json")
+    <script>
+      const links = fetch('/links.json')
         .then((res) => res.json())
         .then((links) => {
-          const list = document.getElementById("links");
+          const list = document.getElementById('links');
           for (const [name, link] of Object.entries(links)) {
-            const item = document.createElement("li");
-            const a = document.createElement("a");
+            const item = document.createElement('li');
+            const a = document.createElement('a');
             a.href = link;
             a.innerText = name;
             item.appendChild(a);
@@ -24,6 +24,7 @@
     </script>
   </head>
   <body>
-    <h1>Hello, World!</h1>
+    <h1>Links</h1>
+    <div id="links"></div>
   </body>
 </html>

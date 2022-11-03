@@ -1,3 +1,6 @@
 {
-    "test": "https://stuypulse.com"
+  "test": "https://stuypulse.com",
+  "hello": "https://google.com",
+  "world": "https://github.com",
+  "super-secret-link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 }
