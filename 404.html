@@ -4,7 +4,7 @@
         <title>Redirecting...</title>
     </head>
     <script>
-        let links = fetch("/.links.json").json();
+        let links = fetch("/.links.json").then(response => {return repsonse.json()});
         let currentpage = window.location.href.split("/")[3];
         if (links.includes("currentpage")) {
             window.location.href = links.currentpage;
