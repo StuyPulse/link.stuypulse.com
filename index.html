@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>StuyPulse Link Shortener</title>
+
+    <script defer>
+      const links = fetch("/links.json")
+        .then((res) => res.json())
+        .then((links) => {
+          const list = document.getElementById("links");
+          for (const [name, link] of Object.entries(links)) {
+            const item = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = link;
+            a.innerText = name;
+            item.appendChild(a);
+            list.appendChild(item);
+          }
+        });
+    </script>
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+  </body>
+</html>
