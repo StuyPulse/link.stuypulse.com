@@ -4,10 +4,12 @@
         <title>Redirecting...</title>
     </head>
     <script>
-        const response = await fetch("/.links.json");
-        const links = await response.json()
+        async function getlinks() {
+            const response = await fetch("/.links.json");
+            return await response.json()
+        }
         let currentpage = window.location.href.split("/")[3];
-        if (links.includes("currentpage")) {
+        if (getlinks().includes("currentpage")) {
             window.location.href = links.currentpage;
         } else {
             document.body.innerHTML = "Invalid link! Make sure you typed it out correctly. It might take a moment for newly created links to appear as well."
