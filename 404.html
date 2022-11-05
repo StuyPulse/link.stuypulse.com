@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+<head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Redirecting...</title>
+</head>
+<body>
+<script>
+	// https://link.stuypulse.com/query
+	const query = window.location.href.split('/')[4];
 
-    <script>
-      // https://link.stuypulse.com/query
-      const query = window.location.href.split('/')[4];
-
-      const links = fetch('links.json')
-        .then((res) => res.json())
-        .then((links) => {
-          if (query in links) {
-            window.location.href = links[query];
-          } else {
-            document.body.innerHTML =
-              'Invalid link! Make sure you typed it out correctly. It might take a moment for newly created links to appear as well.';
-          }
-        });
-    </script>
-  </head>
-
-  <body></body>
+	const links = fetch('links.json')
+			.then((res) => res.json())
+			.then((links) => {
+				if (query in links) {
+					// Add a meta tag to redirect to the link
+					const meta = document.createElement('meta');
+					meta.httpEquiv = 'refresh';
+					meta.content = `0; url=${links[query]}`;
+					document.head.appendChild(meta);
+				} else {
+					document.body.innerHTML =
+							'Invalid link! Make sure you typed it out correctly. It might take a moment for newly created links to appear as well.';
+				}
+			});
+</script>
+</body>
 </html>
