@@ -8,9 +8,8 @@
     <title>Redirecting...</title>
 
     <script>
-      // https://link.stuypulse.com/query
+      /* https://link.stuypulse.com/query */
       const query = window.location.href.split('/')[4];
-
       const links = fetch('links.json')
         .then((res) => res.json())
         .then((links) => {
