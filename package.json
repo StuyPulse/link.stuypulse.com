@@ -1,0 +1,29 @@
+{
+  "name": "link.stuypulse.com",
+  "version": "1.0.0",
+  "description": "epic link shortener",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StuyPulse/link.stuypulse.com.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StuyPulse/link.stuypulse.com/issues"
+  },
+  "homepage": "https://github.com/StuyPulse/link.stuypulse.com#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "googleapis": "^109.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
