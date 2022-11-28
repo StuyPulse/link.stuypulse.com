@@ -19,23 +19,20 @@ async function getSheetData() {
 }
 
 // ========== ROUTES ==========
-app.get('/', (req, res) => {
-  res.send('main page');
-});
 
 app.get('/*', (req, res) => {
-  // path refers to the "path-here" in "link.stuypulse.com/path-here"
-  const path = req.path.slice(1);
+  // alias refers to the "alias" in "link.stuypulse.com/alias"
+  const alias = req.path.slice(1);
 
   getSheetData().then((data) => {
-    for (const [linkPath, destinationLink] of data) {
-      if (linkPath === path) {
+    for (const [linkAlias, destinationLink] of data) {
+      if (alias === linkAlias) {
         res.redirect(destinationLink);
         return;
       }
     }
 
-    res.send('404');
+    res.send('StuyPulse Link Shortener');
   });
 });
 

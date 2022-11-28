@@ -1,4 +1,4 @@
-# links.stuypulse.com
+# link.stuypulse.com
 
 epic link shortener
 
